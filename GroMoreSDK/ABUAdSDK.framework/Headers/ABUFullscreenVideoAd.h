@@ -77,10 +77,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithAdUnitID:(NSString *)unitID;
 
 /// 广告代理对象
-@property (nonatomic, weak) id<ABUFullscreenVideoAdDelegate> delegate;
+@property (nonatomic, weak, nullable) id<ABUFullscreenVideoAdDelegate> delegate;
 
 ///  optional 激励模型，用于全屏视频广告服务端激励回调；目前支持的adn:GDT
-@property (nonatomic, strong) ABURewardedVideoModel * _Nonnull rewardModel;
+@property (nonatomic, strong, nullable) ABURewardedVideoModel *rewardModel;
 
 /// 是否使用模板广告，只对支持模板广告的第三方SDK有效，默认为NO，仅在广告加载前设置有效，优先以平台配置为准
 @property (nonatomic, assign) BOOL getExpressAdIfCan ABU_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，在SDK V2900以上全屏视频客户端将无需区分模板非模板");
@@ -101,22 +101,22 @@ NS_ASSUME_NONNULL_BEGIN
 /// 展示广告
 /// @param viewController 跳转控制器，必传
 /// @param extroInfos 扩展信息，可选，与adapter及ADN是否实现有关，字段参见ABUADSDKConst.h中全屏视频、激励视频展示扩展部分
-- (BOOL)showAdFromRootViewController:(UIViewController *)viewController extroInfos:(NSDictionary *_Nullable)extroInfos;
+- (BOOL)showAdFromRootViewController:(UIViewController *)viewController extroInfos:(nullable NSDictionary *)extroInfos;
 
 /// 返回显示广告对应的披露信息，当没有权限访问时Ecpm会返回'-3'
-- (ABURitInfo *)getShowEcpmInfo;
+- (nullable ABURitInfo *)getShowEcpmInfo;
 
 /// 填充后可调用，返回当前最佳广告的ecpm；当为server bidding ad时访问需要白名单权限；nil为无权限
-- (ABURitInfo *)getCurrentBestEcpmInfo;
+- (nullable ABURitInfo *)getCurrentBestEcpmInfo;
 
 /// 填充后可调用，但推荐展示后调用，返回竞价广告的ecpm；当为server bidding ad时访问需要白名单权限；
-- (NSArray<ABURitInfo *> *)multiBiddingEcpmInfos;
+- (nullable NSArray<ABURitInfo *> *)multiBiddingEcpmInfos;
 
 /// 填充后可调用, 返回广告缓存池内所有信息；nil为无权限
-- (NSArray<ABURitInfo *> *)cacheRitList;
+- (nullable NSArray<ABURitInfo *> *)cacheRitList;
 
 /// 广告的扩展信息，可能为nil
-- (ABUDictionary *_Nullable)extraData;
+- (nullable ABUDictionary *)extraData;
 
 /// 填充后可调用，获取广告中的extra信息。目前只支持穿山甲，并且只支持获取coupon, live_room, product信息。
 - (nullable NSDictionary *)getMediaExtraInfo;

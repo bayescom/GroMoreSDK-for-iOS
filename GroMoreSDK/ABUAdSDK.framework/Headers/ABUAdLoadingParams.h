@@ -17,6 +17,8 @@ extern NSString *const ABUAdLoadingParamScenarioID;
 /// 价值分组规则ID，NSString
 extern NSString *const ABUAdLoadingParamUValueRuleId;
 
+extern NSString *const ABUAdLoadingParamGroupType;
+
 /// ADN广告位ID，NSString
 extern NSString *const ABUAdLoadingParamMediaRitID;
 
@@ -60,10 +62,16 @@ extern NSString *const ABUAdLoadingParamISIsMute;
 /// 是否是静音，NSNumber/BOOL
 extern NSString *const ABUAdLoadingParamFVIsMute;
 
+/// 视频显示方向，NSNumber/NSInteger，0-竖屏，1-横屏，默认竖屏
+extern NSString *const ABUAdLoadingParamFVShowDirection;
+
 #pragma mark - 激励视频
 
 /// 是否是静音，NSNumber/BOOL
 extern NSString *const ABUAdLoadingParamRVIsMute;
+
+/// 视频显示方向，NSNumber/NSInteger，0-竖屏，1-横屏，默认竖屏
+extern NSString *const ABUAdLoadingParamRVShowDirection;
 
 /// 用户标识， NSString
 extern NSString *const ABUAdLoadingParamRVUserID;

@@ -61,6 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param views 可响应点击操作的视图
 - (void)registerClickableViews:(nullable NSArray<UIView *> *)views;
 
+/// 取消可点击区域注册，由GroMore透传数据，是否生效由adapter和adn决定
+- (void)unregisterClickableViews;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -100,6 +100,11 @@ typedef NS_ENUM(NSInteger, ABUBiddingType) {
     ABUBiddingTypePriority = 100
 };
 
+typedef NS_ENUM(NSUInteger, ABUAutoEstPriceSource) {
+    ABUAutoEstPriceNone         = 0, // 无预估
+    ABUAutoEstPriceFromModel    = 1 // 预估价值来源是模型
+};
+
 
 #pragma mark - 其他
 

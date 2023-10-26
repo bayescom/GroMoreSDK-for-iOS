@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
                                    adSize:(CGSize)adSize;
 
 /// 广告代理回调对象
-@property (nonatomic, weak) id<ABUBannerAdDelegate> delegate;
+@property (nonatomic, weak, nullable) id<ABUBannerAdDelegate> delegate;
 
 /// 广告尺寸，构造方法中传递的尺寸值
 @property (nonatomic, assign, readonly) CGSize adSize;
@@ -90,11 +90,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// 返回显示广告对应的披露信息，当没有权限访问时Ecpm会返回'-3'
 - (nullable ABURitInfo *)getShowEcpmInfo;
 
+/// 填充后可调用，返回当前最佳广告的ecpm；当为server bidding ad时访问需要白名单权限；nil为无权限
+- (nullable ABURitInfo *)getCurrentBestEcpmInfo;
+
+/// 填充后可调用，但推荐展示后调用，返回竞价广告的ecpm；当为server bidding ad时访问需要白名单权限；
+- (nullable NSArray<ABURitInfo *> *)multiBiddingEcpmInfos;
+
 /// 填充后可调用, 返回广告缓存池内所有信息；nil为无权限
-- (NSArray<ABURitInfo *> *)cacheRitList;
+- (nullable NSArray<ABURitInfo *> *)cacheRitList;
 
 /// 广告的扩展信息，可能为nil
-- (ABUDictionary *_Nullable)extraData;
+- (nullable ABUDictionary *)extraData;
 
 /// 填充后可调用，获取广告中的extra信息。目前只支持穿山甲，并且只支持获取coupon, live_room, product信息。
 - (nullable NSDictionary *)getMediaExtraInfo;

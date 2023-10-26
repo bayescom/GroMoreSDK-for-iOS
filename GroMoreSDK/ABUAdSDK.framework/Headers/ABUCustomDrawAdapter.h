@@ -38,7 +38,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 注册容器和可点击区域
 /// @param containerView 容器视图
 /// @param views 可点击视图组
+/// @param drawAd 广告
 - (void)registerContainerView:(__kindof UIView *)containerView andClickableViews:(NSArray<__kindof UIView *> *)views forDrawAd:(id)drawAd;
+
+/// 取消注册可点击区域
+/// @param drawAd 广告
+- (void)unregisterClickableViewsForDrawAd:(id)drawAd;
 
 /// 代理，开发者需使用该对象回调事件，Objective-C下自动生成无需设置，Swift需声明
 @property (nonatomic, weak, nullable) id<ABUCustomDrawAdapterBridge> bridge;

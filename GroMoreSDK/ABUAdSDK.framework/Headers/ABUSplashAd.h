@@ -75,14 +75,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ABUSplashAd : ABUBaseAd
 
 /// 广告位ID，只读
-@property (readonly) NSString *adUnitID;
+@property (nonatomic, copy, readonly) NSString *adUnitID;
 
 /// 开屏广告构建方法
 /// @param unitID 广告位ID
 - (instancetype)initWithAdUnitID:(NSString *)unitID;
 
 /// 代理回调对象
-@property (nonatomic, weak) id<ABUSplashAdDelegate> delegate;
+@property (nonatomic, weak, nullable) id<ABUSplashAdDelegate> delegate;
 
 /// 最大等待加载时长，单位秒，，默认3秒。实现由adapter确定
 @property (nonatomic, assign) NSTimeInterval tolerateTimeout;
@@ -121,28 +121,28 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) BOOL isReady;
 
 /// 广告的扩展信息，可能为nil
-- (ABUDictionary *_Nullable)extraData;
+- (nullable ABUDictionary *)extraData;
 
 /// 返回显示广告对应的rit
-- (NSString *)getAdNetworkRitId ABU_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用`getShowEcpmInfo`代替");
+- (nullable NSString *)getAdNetworkRitId ABU_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用`getShowEcpmInfo`代替");
 
 /// 返回显示广告对应的ecpm，当没有权限访问该部分会返回-3 单位：分
-- (NSString *)getPreEcpm ABU_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用`getShowEcpmInfo`代替");
+- (nullable NSString *)getPreEcpm ABU_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用`getShowEcpmInfo`代替");
 
 /// 返回显示广告对应的Adn名称
-- (NSString *)getAdNetworkPlatformName ABU_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用`getShowEcpmInfo`代替");
+- (nullable NSString *)getAdNetworkPlatformName ABU_DEPRECATED_MSG_ATTRIBUTE("接口即将废弃，请使用`getShowEcpmInfo`代替");
 
 /// 返回显示广告对应的披露信息，当没有权限访问时Ecpm会返回'-3'
-- (ABURitInfo *)getShowEcpmInfo;
+- (nullable ABURitInfo *)getShowEcpmInfo;
 
 /// 填充后可调用，返回当前最佳广告的ecpm；当为server bidding ad时访问需要白名单权限；nil为无权限
-- (ABURitInfo *)getCurrentBestEcpmInfo;
+- (nullable ABURitInfo *)getCurrentBestEcpmInfo;
 
 /// 填充后可调用，但推荐展示后调用，返回竞价广告的ecpm；当为server bidding ad时访问需要白名单权限；
-- (NSArray<ABURitInfo *> *)multiBiddingEcpmInfos;
+- (nullable NSArray<ABURitInfo *> *)multiBiddingEcpmInfos;
 
 /// 填充后可调用, 返回广告缓存池内所有信息；nil为无权限
-- (NSArray<ABURitInfo *> *)cacheRitList;
+- (nullable NSArray<ABURitInfo *> *)cacheRitList;
 
 /// 填充后可调用，获取广告中的extra信息。目前只支持穿山甲，并且只支持获取coupon, live_room, product信息。
 - (nullable NSDictionary *)getMediaExtraInfo;

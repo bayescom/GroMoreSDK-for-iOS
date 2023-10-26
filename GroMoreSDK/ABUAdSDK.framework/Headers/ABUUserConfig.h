@@ -30,6 +30,9 @@ typedef NS_ENUM(NSInteger, ABUAdSDKThemeStatus) {
 
 @interface ABUUserConfig : NSObject <NSCopying>
 
+/// 是否允许采集设备信息，用于个性化配置
+@property (nonatomic, assign) BOOL allowUploadDeviceInfo;
+
 /// 是否开启日志输出
 @property (nonatomic, assign) BOOL logEnable;
 
@@ -37,7 +40,7 @@ typedef NS_ENUM(NSInteger, ABUAdSDKThemeStatus) {
 @property (nonatomic, assign) ABUAdSDKThemeStatus themeStatus;
 
 /// 设置扩展设备信息，如不了解该功能，请勿使用。 如@"[{\"device_id\":\"62271333038\"}]"
-@property (nonatomic, copy) NSDictionary *extraDeviceMap;
+@property (nonatomic, copy, nullable) NSDictionary *extraDeviceMap;
 
 /// 旧版本兼容，是否开启调试模式。真实情况由adapter实现，官方adapter中Unity可用
 @property (nonatomic, assign) BOOL testMode;
@@ -47,6 +50,10 @@ typedef NS_ENUM(NSInteger, ABUAdSDKThemeStatus) {
 
 /// 自定义IDFA，格式需与IDFA格式相同，xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx，官方adapter中CSJ/KS/Klevin支持
 @property (nonatomic, copy, nullable) NSString *customIDFA;
+
+@property (nonatomic, copy, nullable, readonly) NSDictionary *extraData;
+
+- (void)setExtraData:(id)data forKey:(NSString *)key;
 
 @end
 

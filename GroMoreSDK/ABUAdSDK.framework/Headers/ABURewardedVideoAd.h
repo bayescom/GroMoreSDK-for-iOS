@@ -73,13 +73,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithAdUnitID:(NSString *)unitID;
 
 /// 激励广告的自定义数据
-@property (nonatomic, strong) ABURewardedVideoModel *rewardedVideoModel;
+@property (nonatomic, strong, nullable) ABURewardedVideoModel *rewardedVideoModel;
 
-@property (nonatomic, weak) id<ABURewardedVideoAdDelegate> delegate;
+@property (nonatomic, weak, nullable) id<ABURewardedVideoAdDelegate> delegate;
 
 /// 再看一次的回调代理；在触发"再看一次"后，展示回调后的一些回调会依此触发，通过该标识判断当次回调是否属于再看一次的回调。支持的adn：Pangle/KS；
 /// 再看一次可触发的会滴：visiable/click/clickSkip/playFinesh/rewardedVideoAdServerRewardDidSucceed
-@property (nonatomic, weak) id<ABURewardedVideoAdDelegate> rewardPlayAgainDelegate;
+@property (nonatomic, weak, nullable) id<ABURewardedVideoAdDelegate> rewardPlayAgainDelegate;
 
 /**
  2021-02
@@ -112,19 +112,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)showAdFromRootViewController:(UIViewController *)viewController extraInfos:(NSDictionary *_Nullable)extraInfos;
 
 /// 返回显示广告对应的披露信息，当没有权限访问时Ecpm会返回'-3'
-- (ABURitInfo *)getShowEcpmInfo;
+- (nullable ABURitInfo *)getShowEcpmInfo;
 
 /// 填充后可调用，返回当前最佳广告的ecpm；当为server bidding ad时访问需要白名单权限；nil为无权限
-- (ABURitInfo *)getCurrentBestEcpmInfo;
+- (nullable ABURitInfo *)getCurrentBestEcpmInfo;
 
 /// 填充后可调用，但推荐展示后调用，返回竞价广告的ecpm；当为server bidding ad时访问需要白名单权限；
-- (NSArray<ABURitInfo *> *)multiBiddingEcpmInfos;
+- (nullable NSArray<ABURitInfo *> *)multiBiddingEcpmInfos;
 
 /// 填充后可调用, 返回广告缓存池内所有信息；nil为无权限
-- (NSArray<ABURitInfo *> *)cacheRitList;
+- (nullable NSArray<ABURitInfo *> *)cacheRitList;
 
 /// 广告的扩展信息，可能为nil
-- (ABUDictionary *_Nullable)extraData;
+- (nullable ABUDictionary *)extraData;
 
 /// 填充后可调用，获取广告中的extra信息。目前只支持穿山甲，并且只支持获取coupon, live_room, product信息。
 - (nullable NSDictionary *)getMediaExtraInfo;

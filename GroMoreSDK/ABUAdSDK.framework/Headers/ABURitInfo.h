@@ -9,6 +9,7 @@
 
 #import "ABUAdSDKConst.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface ABURitInfo : NSObject
 
@@ -56,3 +57,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

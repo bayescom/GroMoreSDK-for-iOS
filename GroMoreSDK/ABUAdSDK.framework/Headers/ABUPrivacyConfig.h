@@ -34,7 +34,7 @@ const static NSString *kABUPrivacyNotAdult = @"ABUPrivacyNotAdult";
 
 @interface ABUPrivacyConfig : NSObject
 
-// 根据key配置相关隐私项
+// 根据key配置相关隐私项，建议在启动前设置
 + (void)setPrivacyWithKey:(const NSString *)key andValue:(id)value;
 
 // 获取当前配置项
