@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "GroMoreBiddingSDK"
-  spec.version      = "1.1.0"
+  spec.version      = "1.2.0"
   spec.summary      = "A short description of GroMoreBiddingSDK"
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }
   spec.author       = { "wanggy" => "wanggy@bayescom.com" }
